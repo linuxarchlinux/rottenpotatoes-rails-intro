@@ -14,6 +14,12 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+	case params[:sort]
+	when 'title'
+		@movies.order!('title asc')
+		@title_class = 'hilite"
+	end
+
   def new
     # default: render 'new' template
   end
